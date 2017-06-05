@@ -229,3 +229,12 @@ GuruxDLMSClientExample/VS/GuruxDLMClientExample.VC.db
 GuruxDLMSClientExample/VS/GuruxDLMClientExample.VC.db
 *.db
 GuruxDLMSServerExample/VS/data.csv
+
+#################
+## IAR
+#################
+*.dep
+*.ewt
+/IAR_EWARM/settings/
+Debug/
+settings/

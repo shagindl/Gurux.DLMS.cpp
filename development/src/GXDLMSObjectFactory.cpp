@@ -62,7 +62,9 @@
 #include "../include/GXDLMSMacAddressSetup.h"
 #include "../include/GXDLMSHdlcSetup.h"
 #include "../include/GXDLMSIECOpticalPortSetup.h"
-#include "../include/GXDLMSIp4Setup.h"
+#ifndef __ICCARM__
+    #include "../include/GXDLMSIp4Setup.h"
+#endif
 #include "../include/GXDLMSRegisterActivation.h"
 #include "../include/GXDLMSSchedule.h"
 #include "../include/GXDLMSModemConfiguration.h"
@@ -108,8 +110,10 @@ CGXDLMSObject* CGXDLMSObjectFactory::CreateObject(DLMS_OBJECT_TYPE type)
         return new CGXDLMSIECOpticalPortSetup();
     case DLMS_OBJECT_TYPE_IEC_TWISTED_PAIR_SETUP:
         return new CGXDLMSCustomObject(type);
+#ifndef __ICCARM__
     case DLMS_OBJECT_TYPE_IP4_SETUP:
         return new CGXDLMSIp4Setup();
+#endif
     case DLMS_OBJECT_TYPE_MBUS_SLAVE_PORT_SETUP:
         return new CGXDLMSMBusSlavePortSetup();
     case DLMS_OBJECT_TYPE_IMAGE_TRANSFER:
